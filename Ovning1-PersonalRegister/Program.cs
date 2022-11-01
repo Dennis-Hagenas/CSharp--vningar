@@ -9,7 +9,7 @@
      * klass :Employee
      * 
      * 
-     * klass :MainProgram
+     * klass :MainDB
      * 
      * 
      * 
@@ -20,7 +20,7 @@
      * string name
      * 
      * 
-     * klass  :MainDatabase
+     * klass  :MainDB
      * 
      * List<Employee>   EmployeeList 
      * 
@@ -39,6 +39,7 @@
             this.Name = name;
             this.salary = salary;
         }
+
         public string Name;
         public long salary;
 
@@ -93,7 +94,6 @@
                         Console.WriteLine("Ange personens lön");
                         long salary = long.Parse(Console.ReadLine());
                         mainDB.AddEmployee(name, salary);
-
                         break;
                     case "3":
                         Console.WriteLine("Personer");
