@@ -101,7 +101,7 @@
 
                         foreach (var e in mainDB.employees)
                         {
-                            Console.WriteLine("- {0}  Lön:  {1:C}", e.Name, e.salary);
+                            Console.WriteLine($"- {e.Name}  Lön:  {e.salary:C}");
                         }
                         Console.WriteLine("");
 
