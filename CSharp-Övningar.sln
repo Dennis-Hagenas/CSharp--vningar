@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp-Övningar", "CSharp-Övningar\CSharp-Övningar.csproj", "{90C9B605-53EC-4BF7-B3E7-3DBC9454EC15}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharp-Övningar", "CSharp-Övningar\CSharp-Övningar.csproj", "{90C9B605-53EC-4BF7-B3E7-3DBC9454EC15}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ovning1-PersonalRegister", "Ovning1-PersonalRegister\Ovning1-PersonalRegister.csproj", "{40883577-5B81-41D3-A7FB-314EC7C2EA24}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ovning1-PersonalRegister", "Ovning1-PersonalRegister\Ovning1-PersonalRegister.csproj", "{40883577-5B81-41D3-A7FB-314EC7C2EA24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ovning2", "Ovning2\Ovning2.csproj", "{331DA1F6-8820-4781-BE6C-DAA62C062E08}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{40883577-5B81-41D3-A7FB-314EC7C2EA24}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40883577-5B81-41D3-A7FB-314EC7C2EA24}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40883577-5B81-41D3-A7FB-314EC7C2EA24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{331DA1F6-8820-4781-BE6C-DAA62C062E08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{331DA1F6-8820-4781-BE6C-DAA62C062E08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{331DA1F6-8820-4781-BE6C-DAA62C062E08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{331DA1F6-8820-4781-BE6C-DAA62C062E08}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

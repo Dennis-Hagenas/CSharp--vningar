@@ -2,9 +2,16 @@
 {
     internal class Program
     {
+
+       
+
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            HuvudMeny huvudMeny = new HuvudMeny();
+            huvudMeny.Run();
+
         }
+
+       
     }
 }
