@@ -87,11 +87,20 @@ namespace Ovning2
             try { 
             string mening = Console.ReadLine();
             var ord = mening.Split(" ");
-            //for (int i = 0; i < ord.Length; i++)
-            //{
-            //    Console.Write($" Ord {i+1}: \"{ord[i]}\"");
-            //}
-            Console.WriteLine($"Det tredje ordet är {ord[2]}");
+
+                StringBuilder str_build = new StringBuilder();
+                for (int i = 0; i < ord.Length; i++)
+                {
+                    if (ord[i].Length > 0) str_build.Append(ord[i] + " ");
+                }
+
+                ord = str_build.ToString().Split(" ");
+
+                //for (int i = 0; i < ord.Length; i++)
+                //{
+                //    Console.Write($" Ord {i + 1}: \"{ord[i]}\"");
+                //}
+                Console.WriteLine($"Det tredje ordet är {ord[2]}");
             } catch {
                 Console.WriteLine("Inget giltigt värde angavs.");
             }
