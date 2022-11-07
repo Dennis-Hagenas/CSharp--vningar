@@ -61,24 +61,30 @@ namespace Ovning2
         {
             Console.Write("Hur många personer är det i sällskapet: ");
             string personer_s = Console.ReadLine()!;
-            int personer_i = int.Parse(personer_s!);
+            int personer_i = 0;
+            if (int.TryParse(personer_s, out personer_i))
+            {
 
-            int summa = 0;
-            for(int i = 0; i < personer_i; i++){
-                Console.Write($"Ange ålder för person {i+1}: ");
-                string alder_input = Console.ReadLine()!;
-                int pris = 0;
-                string prisKategori = "";
-                PrisMethod(alder_input, out pris, out prisKategori );
-                summa += pris;
+                int summa = 0;
+                for (int i = 0; i < personer_i; i++)
+                {
+                    Console.Write($"Ange ålder för person {i + 1}: ");
+                    string alder_input = Console.ReadLine()!;
+                    int pris = 0;
+                    string prisKategori = "";
+                    PrisMethod(alder_input, out pris, out prisKategori);
+                    summa += pris;
+                }
+
+                Console.WriteLine($"Ett biosällskap på {personer_i} personer, totalkostnad: {summa:C}");
             }
-
-            Console.WriteLine($"Ett biosällskap på {personer_i} personer, totalkostnad: {summa:C}");
+            else Console.WriteLine("Felaktigt värde");
         }
 
         private void TredjeOrdetMethod()
         {
             Console.Write("Skriv en mening: ");
+            try { 
             string mening = Console.ReadLine();
             var ord = mening.Split(" ");
             //for (int i = 0; i < ord.Length; i++)
@@ -86,7 +92,9 @@ namespace Ovning2
             //    Console.Write($" Ord {i+1}: \"{ord[i]}\"");
             //}
             Console.WriteLine($"Det tredje ordet är {ord[2]}");
-
+            } catch {
+                Console.WriteLine("Inget giltigt värde angavs.");
+            }
         }
 
         private void UpprepaMethod()
@@ -104,8 +112,15 @@ namespace Ovning2
             pris = 120;
             priskategori = "Standardpris";
 
-            if(alder_i < 20) { pris = 80; priskategori = "Ungdomspris"; } 
-            else if (alder_i > 64) { pris = 90; priskategori = "Pensionärspris"; }
+            if (alder_i < 20)
+            {
+                if (alder_i < 5) { pris = 0; priskategori = "Barn går gratis"; } 
+                else { pris = 80; priskategori = "Ungdomspris"; }
+            }
+            else if (alder_i > 64) { 
+                if (alder_i > 100) { pris = 0; priskategori = "Pensionärer över 100 går gratis"; }
+                else { pris = 90; priskategori = "Pensionärspris"; } 
+            }
         }
 
 
