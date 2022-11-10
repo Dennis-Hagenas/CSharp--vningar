@@ -39,7 +39,6 @@ namespace Ovning3
             setHeight(p, height);
             setWeight(p, weight);
             return p;
-
         }
     }
 }

@@ -26,13 +26,31 @@
             List<UserError> errors = new List<UserError>();
             errors.Add(new NumericInputError());
             errors.Add(new TextInputError());
+            errors.Add(new NumericSignInputError());
+            errors.Add(new TextInputError());
+            errors.Add(new NumericSignInputError());
+            errors.Add(new NumericSignInputError());
+            errors.Add(new NumericInputError());
             errors.Add(new NumericInputError());
             errors.Add(new TextInputError());
+            errors.Add(new TextLengthInputError());
+            errors.Add(new NumericSignInputError());
+            errors.Add(new NumericRangeInputError());
+            errors.Add(new TextLengthInputError());
+            errors.Add(new NumericSignInputError());
+            errors.Add(new NumericRangeInputError());
+            errors.Add(new TextLengthInputError());
+            errors.Add(new NumericRangeInputError());
+            errors.Add(new TextLengthInputError());
+            errors.Add(new NumericRangeInputError());
+            errors.Add(new TextLengthInputError());
             errors.Add(new TextInputError());
+            errors.Add(new NumericSignInputError());
+            errors.Add(new NumericRangeInputError());
             errors.Add(new TextInputError());
+            errors.Add(new TextLengthInputError());
             errors.Add(new NumericInputError());
-            errors.Add(new NumericInputError());
-            errors.Add(new TextInputError());
+            errors.Add(new NumericRangeInputError());
 
 
             foreach (UserError error in errors) 
