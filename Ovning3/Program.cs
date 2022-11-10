@@ -55,6 +55,72 @@
 
             foreach (UserError error in errors) 
                 Console.WriteLine($"Error: {error.UEMessage()}");
+
+
+
+
+
+            List<Animal> animals = new List<Animal>();
+
+            animals.Add(new Wolf("Wolf", 15, 5));
+            animals.Add(new Pelican("Pelican", 15, 5));
+            animals.Add(new Bird("Bird", 15, 5));
+            animals.Add(new WolfMan("WolfMan", 15, 5));
+            animals.Add(new Dog("Dog", 15, 5));
+
+            Console.WriteLine("\nAnimals\n-------------\n");
+
+            foreach (Animal animal in animals)
+            {
+                Console.WriteLine($"Animal: {animal.Name}  Sound: {animal.DoSound()}");
+                if (animal is IPerson) { 
+                    IPerson person = (IPerson)animal;
+                    Console.WriteLine(person.Talk()); 
+                }
+            }
+
+
+
+
+            List<Dog> dogs = new List<Dog>();
+
+            dogs.Add(new Dog("Dog", 15, 5));
+            dogs.Add(new Dog("Dog", 15, 5));
+            dogs.Add(new Dog("Dog", 15, 5));
+            dogs.Add(new Dog("Dog", 15, 5));
+            dogs.Add(new Dog("Dog", 15, 5));
+
+            Console.WriteLine("\nDogs\n-------------\n");
+            foreach (Dog dog in dogs) {
+                Console.WriteLine(dog.Stats());
+            }
+
+            //dogs.Add(new Horse("Horse", 180, 10));
+            /*
+             * F: Ovanstående går inte för det är inte samma klass typ
+             * F: För att alla klasser ska kunna lagras tillsammans måste typen vara Animal i listan
+             */
+
+
+            Console.WriteLine("\nAnimals\n-------------\n");
+
+            foreach (Animal animal in animals)
+            {
+                Console.WriteLine(animal.Stats());
+                if (animal is Dog)
+                {
+                    Dog dog = (Dog)animal;
+                    Console.WriteLine($"Dog gives a: {dog.FetchBall()}");
+                } 
+                
+            }
+            /*
+             * F: Den överladdade versionen av doSound anropas i subclassen
+             * F: FetchBall i Dog klassen kommer jag inte åt från Animal klassen för den är inte definerad där,
+             *    Jag måste cast till Dog först
+             * 
+             */
+
         }
     }
 }

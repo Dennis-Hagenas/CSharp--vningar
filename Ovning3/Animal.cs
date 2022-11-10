@@ -8,7 +8,7 @@ namespace Ovning3
 {
 /*
  * 
- * F: Om vi ska lägga till egenskaper till fåglar behövs det läggas i klassen Bird
+ * F: Om vi ska lägga till egenskaper till fåglar bör det läggas i klassen Bird
  * 
  * F: Om alla djur behöver ett nytt attribut bör det läggas i klassen Animal
  * 
@@ -21,7 +21,7 @@ namespace Ovning3
  */
     interface IPerson
     {
-        public void Talk();
+        public string Talk();
     }
     public abstract class Animal
     {
@@ -31,7 +31,12 @@ namespace Ovning3
 
         public double Age { get; set; }
 
-        public abstract void DoSound();
+        public abstract string DoSound();
+
+        public virtual string Stats()
+        {
+            return "Name: "+ Name + ", Weight: " + Weight + ", Age: " + Age;
+        }
 
         protected Animal(string name, double weight, double age)
         {
@@ -48,9 +53,14 @@ namespace Ovning3
         {
         }
 
-        public override void DoSound()
+        public override string Stats()
         {
-            Console.WriteLine("Nyaaaah");
+            return base.Stats() + ", Sound: " + DoSound();
+        }
+
+        public override string DoSound()
+        {
+            return "Nyaaaah";
         }
         public bool IsRacingHorse { get; set; }
     }
@@ -59,10 +69,19 @@ namespace Ovning3
         public Dog(string name, double weight, double age) : base(name, weight, age)
         {
         }
-
-        public override void DoSound()
+        public override string Stats()
         {
-            Console.WriteLine("Woooof");
+            return base.Stats() + ", Sound: " + DoSound();
+        }
+
+        public override string DoSound()
+        {
+            return "Woooof";
+        }
+
+        public string FetchBall()
+        {
+            return "Ball";
         }
 
         public bool IsGuardDog { get; set; }
@@ -72,10 +91,14 @@ namespace Ovning3
         public Hedgehog(string name, double weight, double age) : base(name, weight, age)
         {
         }
-
-        public override void DoSound()
+        public override string Stats()
         {
-            Console.WriteLine("Squeeek");
+            return base.Stats() + ", Sound: " + DoSound();
+        }
+
+        public override string DoSound()
+        {
+            return "Squeeek";
         }
         public int NrOfSpikes { get; set; }
     }
@@ -84,10 +107,14 @@ namespace Ovning3
         public Worm(string name, double weight, double age) : base(name, weight, age)
         {
         }
-
-        public override void DoSound()
+        public override string Stats()
         {
-            Console.WriteLine("Squirm");
+            return base.Stats() + ", Sound: " + DoSound();
+        }
+
+        public override string DoSound()
+        {
+            return "Squirm";
         }
         public bool IsPoisonous { get; set; }
     }
@@ -96,10 +123,14 @@ namespace Ovning3
         public Bird(string name, double weight, double age) : base(name, weight, age)
         {
         }
-
-        public override void DoSound()
+        public override string Stats()
         {
-            Console.WriteLine("Pip pip");
+            return base.Stats() + ", Sound: " + DoSound();
+        }
+
+        public override string DoSound()
+        {
+            return "Pip pip";
         }
         public double WingSpan { get; set; }
     }
@@ -108,10 +139,14 @@ namespace Ovning3
         public Wolf(string name, double weight, double age) : base(name, weight, age)
         {
         }
-
-        public override void DoSound()
+        public override string Stats()
         {
-            Console.WriteLine("Yyyyl");
+            return base.Stats() + ", Sound: " + DoSound();
+        }
+
+        public override string DoSound()
+        {
+            return "Yyyyl";
         }
         public bool IsArctic { get; set; }
     }
@@ -146,9 +181,9 @@ namespace Ovning3
         {
         }
 
-        public void Talk()
+        public string Talk()
         {
-            Console.WriteLine("Hello, I am a WolfMan");
+            return "Hello, I am a WolfMan";
         }
     }
 
