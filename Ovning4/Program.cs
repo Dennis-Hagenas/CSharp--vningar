@@ -2,6 +2,22 @@
 
 namespace Ovning4
 {
+    /*
+     * 
+     * 1. Stacken är en kö eller lista där det första objektet som läggs i minnet är det sista som tas bort
+     * Heapen är ett minnesområde där object lagras mer persistent med minneshantering och garbagecollection
+     * 
+     * 2. ValueTypes är de primitiver som deklareras i C# som int, double. Dessa kan ligga på stacken eller heapen
+     * Reference types är objekt som alltid ligger på heapen och ärver från System.Object
+     * 
+     * 3. y innehåller en referens till x, när y sätts till 4 sätts också x till fyra,
+     * i det första exemplet sätts inte x till 4 när y sätts till 4
+     * 
+     * 
+     * 
+     */
+
+
     class Program
     {
         /// <summary>
@@ -63,6 +79,14 @@ namespace Ovning4
         static void ExamineList()
         {
             /*
+             * 
+             * 
+             * 2. Listan ökar när 5 element lagts till
+             * 3. Listan dubblerar i storlek
+             * 4. För att spara på cpu tid och minnesfragmentering
+             * 5. Kapaciteten minskar inte när element tas bort ur listan
+             * 6.
+             * 
              * Loop this method untill the user inputs something to exit to main menue.
              * Create a switch statement with cases '+' and '-'
              * '+': Add the rest of the input to the list (The user could write +Adam and "Adam" would be added to the list)
@@ -72,12 +96,51 @@ namespace Ovning4
              * Below you can see some inspirational code to begin working.
             */
 
-            //List<string> theList = new List<string>();
-            //string input = Console.ReadLine();
-            //char nav = input[0];
-            //string value = input.substring(1);
+            List<string> theList = new List<string>();
 
-            //switch(nav){...}
+            bool run = true;
+            while (run) {
+                Console.WriteLine("Enter a string");
+                Console.WriteLine($"List Capacity: {theList.Capacity} Length: {theList.Count()}");
+
+                string input;
+                char nav;
+                string value;
+
+                try
+                {
+                 input = Console.ReadLine();
+                 nav = input[0];
+                value = input.Substring(1);
+                }
+                catch (Exception)
+                {
+                    nav = 'A';
+                    value = "A";
+                }
+
+                switch (nav) {
+                    case '+':
+                        theList.Add(value);
+                        break;
+                    case '-':
+                        theList.Remove(value);
+                        break;
+                    case 'l':
+                        foreach (string str in theList)
+                        {
+                            Console.Write($" {str} ");
+                        }
+                        Console.WriteLine();
+                        break;
+                    case '0':
+                        run = false;
+                        break;
+                    default:
+                        Console.WriteLine("Use + or - to add or remove items from the list\nl to print list\n0 to exit to main menu");
+                        break;
+                }
+            }
         }
 
         /// <summary>
@@ -90,6 +153,54 @@ namespace Ovning4
              * Create a switch with cases to enqueue items or dequeue items
              * Make sure to look at the queue after Enqueueing and Dequeueing to see how it behaves
             */
+            Queue<string> theQueue = new Queue<string>();  
+
+            bool run = true;
+            while (run)
+            {
+                Console.WriteLine("Enter a string");
+                Console.WriteLine($"Queue Length: {theQueue.Count()}");
+
+                string input;
+                char nav;
+                string value;
+
+                try
+                {
+                    input = Console.ReadLine();
+                    nav = input[0];
+                    value = input.Substring(1);
+                }
+                catch (Exception)
+                {
+                    nav = 'A';
+                    value = "A";
+                }
+
+                switch (nav)
+                {
+                    case '+':
+                        theQueue.Enqueue(value);
+                        break;
+                    case '-':
+                        theQueue.Dequeue();
+                        break;
+                    case 'l':
+                        Console.Write("Queue: ");
+                        foreach (string str in theQueue)
+                        {
+                            Console.Write($" {str} ");
+                        }
+                        Console.WriteLine();
+                        break;
+                    case '0':
+                        run = false;
+                        break;
+                    default:
+                        Console.WriteLine("Use + to queue an item, - to dequeue\nl to print list\n0 to exit to main menu");
+                        break;
+                }
+            }
         }
 
         /// <summary>
