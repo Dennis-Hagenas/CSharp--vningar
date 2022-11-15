@@ -34,6 +34,7 @@ namespace Ovning4
                     + "\n2. Examine a Queue"
                     + "\n3. Examine a Stack"
                     + "\n4. CheckParanthesis"
+                    + "\n5. ReverseString"
                     + "\n0. Exit the application");
                 char input = ' '; //Creates the character input to be used with the switch-case below.
                 try
@@ -59,6 +60,9 @@ namespace Ovning4
                     case '4':
                         CheckParanthesis();
                         break;
+                    case '5':
+                        ReverseString();
+                        break;
                     /*
                      * Extend the menu to include the recursive 
                      * and iterative exercises.
@@ -71,6 +75,20 @@ namespace Ovning4
                         break;
                 }
             }
+        }
+
+        private static void ReverseString()
+        {
+            Console.WriteLine("Enter a string");
+            string input = Console.ReadLine();
+            Stack<char> stack = new Stack<char>();
+            for (int i = 0; i < input.Length; i++)
+            {
+                stack.Push(input.ElementAt(i));
+            }
+            foreach (char c in stack)
+                Console.Write(c);
+            Console.WriteLine();
         }
 
         /// <summary>
@@ -149,6 +167,12 @@ namespace Ovning4
         static void ExamineQueue()
         {
             /*
+             * 
+             * 
+             * 
+             * 
+             * 
+             * 
              * Loop this method untill the user inputs something to exit to main menue.
              * Create a switch with cases to enqueue items or dequeue items
              * Make sure to look at the queue after Enqueueing and Dequeueing to see how it behaves
@@ -209,10 +233,64 @@ namespace Ovning4
         static void ExamineStack()
         {
             /*
+             * 1. Den som kommer sist till kön för förtur
+             * 
              * Loop this method until the user inputs something to exit to main menue.
              * Create a switch with cases to push or pop items
              * Make sure to look at the stack after pushing and and poping to see how it behaves
             */
+            Stack<string> theStack = new Stack<string>();
+
+            bool run = true;
+            while (run)
+            {
+                Console.WriteLine("Enter a string");
+                Console.WriteLine($"Stack Length: {theStack.Count()}");
+
+                string input;
+                char nav;
+                string value;
+
+                try
+                {
+                    input = Console.ReadLine();
+                    nav = input[0];
+                    value = input.Substring(1);
+                }
+                catch (Exception)
+                {
+                    nav = 'A';
+                    value = "A";
+                }
+
+                switch (nav)
+                {
+                    case '+':
+                        theStack.Push(value);
+                        break;
+                    case '-':
+                        theStack.Pop();
+                        break;
+                    case 'l':
+                        Console.Write("Queue: ");
+                        foreach (string str in theStack)
+                        {
+                            Console.Write($" {str} ");
+                        }
+                        Console.WriteLine();
+                        break;
+                    case '0':
+                        run = false;
+                        break;
+                    default:
+                        Console.WriteLine("Use + to push an item, - to pop\nl to print list\n0 to exit to main menu");
+                        break;
+                }
+            }
+
+
+
+
         }
 
         static void CheckParanthesis()
@@ -222,6 +300,10 @@ namespace Ovning4
              * Example of correct: (()), {}, [({})],  List<int> list = new List<int>() { 1, 2, 3, 4 };
              * Example of incorrect: (()]), [), {[()}],  List<int> list = new List<int>() { 1, 2, 3, 4 );
              */
+
+
+
+
 
         }
 
