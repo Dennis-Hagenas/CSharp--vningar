@@ -302,8 +302,44 @@ namespace Ovning4
              */
 
 
+            Console.WriteLine("Enter a string with parenthesis (){}[]");
+            string input = Console.ReadLine();
+            Stack<char> stack = new Stack<char>();
+            bool wellFormed = true;
+            for (int i = 0; i < input.Length; i++)
+            {
+                char c = input[i];
+                if ((c == '(') || (c == '{') || (c == '[')) stack.Push(c);
+                if((c == ')') || (c == '}') || (c == ']'))
+                {
+                    if(stack.Count == 0)
+                    {
+                        wellFormed = false;
+                        break;
+                    }
+                    char corresponding = stack.Pop();
+                    if (c == ')' && corresponding != '(')
+                    {
+                        wellFormed = false;
+                        break;
+                    }
+                    if (c == '}' && corresponding != '{')
+                    {
+                        wellFormed = false;
+                        break;
+                    }
+                    if (c == ']' && corresponding != '[')
+                    {
+                        wellFormed = false;
+                        break;
+                    }
+                }
 
-
+            }
+            if (wellFormed)
+                Console.WriteLine("The string has matching parenthesis.");
+            else
+                Console.WriteLine("The string does not have matching parenthesis.");
 
         }
 
