@@ -117,7 +117,8 @@ namespace Ovning4
             List<string> theList = new List<string>();
 
             bool run = true;
-            while (run) {
+            while (run)
+            {
                 Console.WriteLine("Enter a string");
                 Console.WriteLine($"List Capacity: {theList.Capacity} Length: {theList.Count()}");
 
@@ -127,9 +128,9 @@ namespace Ovning4
 
                 try
                 {
-                 input = Console.ReadLine();
-                 nav = input[0];
-                value = input.Substring(1);
+                    input = Console.ReadLine();
+                    nav = input[0];
+                    value = input.Substring(1);
                 }
                 catch (Exception)
                 {
@@ -137,7 +138,8 @@ namespace Ovning4
                     value = "A";
                 }
 
-                switch (nav) {
+                switch (nav)
+                {
                     case '+':
                         theList.Add(value);
                         break;
@@ -177,7 +179,7 @@ namespace Ovning4
              * Create a switch with cases to enqueue items or dequeue items
              * Make sure to look at the queue after Enqueueing and Dequeueing to see how it behaves
             */
-            Queue<string> theQueue = new Queue<string>();  
+            Queue<string> theQueue = new Queue<string>();
 
             bool run = true;
             while (run)
@@ -288,9 +290,6 @@ namespace Ovning4
                 }
             }
 
-
-
-
         }
 
         static void CheckParanthesis()
@@ -310,9 +309,9 @@ namespace Ovning4
             {
                 char c = input[i];
                 if ((c == '(') || (c == '{') || (c == '[')) stack.Push(c);
-                if((c == ')') || (c == '}') || (c == ']'))
+                if ((c == ')') || (c == '}') || (c == ']'))
                 {
-                    if(stack.Count == 0)
+                    if (stack.Count == 0)
                     {
                         wellFormed = false;
                         break;

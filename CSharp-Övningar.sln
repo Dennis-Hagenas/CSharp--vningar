@@ -13,6 +13,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ovning3", "Ovning3\Ovning3.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ovning4", "Ovning4\Ovning4.csproj", "{F2890CB0-E49B-44D6-B362-4EC3FCF52A3B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncapsulationLab", "EncapsulationLab\EncapsulationLab.csproj", "{1398B6B9-032A-4BBA-94AE-A14A37E7A906}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOP-Inheritance-Exercise", "OOP-Inheritance-Exercise\OOP-Inheritance-Exercise.csproj", "{5AB0B8B5-3E5F-4F7A-81A7-7034A675E858}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{F2890CB0-E49B-44D6-B362-4EC3FCF52A3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2890CB0-E49B-44D6-B362-4EC3FCF52A3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2890CB0-E49B-44D6-B362-4EC3FCF52A3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1398B6B9-032A-4BBA-94AE-A14A37E7A906}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1398B6B9-032A-4BBA-94AE-A14A37E7A906}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1398B6B9-032A-4BBA-94AE-A14A37E7A906}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1398B6B9-032A-4BBA-94AE-A14A37E7A906}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AB0B8B5-3E5F-4F7A-81A7-7034A675E858}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AB0B8B5-3E5F-4F7A-81A7-7034A675E858}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AB0B8B5-3E5F-4F7A-81A7-7034A675E858}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AB0B8B5-3E5F-4F7A-81A7-7034A675E858}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
