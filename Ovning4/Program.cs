@@ -29,12 +29,14 @@ namespace Ovning4
 
             while (true)
             {
-                Console.WriteLine("Please navigate through the menu by inputting the number \n(1, 2, 3 ,4, 0) of your choice"
+                Console.WriteLine("Please navigate through the menu by inputting the number \n(1, 2, 3 ,4, 5, 6, 0) of your choice"
                     + "\n1. Examine a List"
                     + "\n2. Examine a Queue"
                     + "\n3. Examine a Stack"
                     + "\n4. CheckParanthesis"
                     + "\n5. ReverseString"
+                    + "\n6. RecursiveEven"
+                    + "\n7. Fibonacci"
                     + "\n0. Exit the application");
                 char input = ' '; //Creates the character input to be used with the switch-case below.
                 try
@@ -63,6 +65,12 @@ namespace Ovning4
                     case '5':
                         ReverseString();
                         break;
+                    case '6':
+                        RecursiveEvenInteract();
+                        break;
+                    case '7':
+                        FibonacciInteract();
+                        break;
                     /*
                      * Extend the menu to include the recursive 
                      * and iterative exercises.
@@ -75,6 +83,40 @@ namespace Ovning4
                         break;
                 }
             }
+        }
+
+        private static void FibonacciInteract()
+        {
+            Console.WriteLine("Enter series length");
+            string input = Console.ReadLine();
+            int i = int.Parse(input);
+            for (int k = 0; k < i; k++)
+            {
+                Console.Write($"{Fibonacci(k)} ");
+            }
+            Console.WriteLine();
+        }
+
+            private static int Fibonacci(int i)
+        {
+            if (i == 0) return 0;
+            if( i == 1) return 1;
+            return Fibonacci(i - 1) + Fibonacci(i - 2);
+        }
+
+        private static void RecursiveEvenInteract()
+        {
+            Console.WriteLine("Enter a number");
+            string input = Console.ReadLine();
+            int i = int.Parse(input);
+            Console.WriteLine($"The {i} even number is {RecursiveEven(i)}");
+
+        }
+
+        private static int RecursiveEven(int i)
+        {
+            if (i == 1) return 2;
+            return RecursiveEven(i - 1) + 2;
         }
 
         private static void ReverseString()
