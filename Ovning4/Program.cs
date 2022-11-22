@@ -71,6 +71,9 @@ namespace Ovning4
                     case '7':
                         FibonacciInteract();
                         break;
+                    case '8':
+                        IterativeEvenInteract();
+                        break;
                     /*
                      * Extend the menu to include the recursive 
                      * and iterative exercises.
@@ -83,6 +86,32 @@ namespace Ovning4
                         break;
                 }
             }
+        }
+
+
+        /*
+         *  F: Den iterativa varianten bör vara mer minnesvänlig,
+         *  variablerna behöver bara allokeras en gång istället för varje metodanrop
+         * 
+         */
+
+
+        private static void IterativeEvenInteract()
+        {
+            Console.WriteLine("Enter a number");
+            string input = Console.ReadLine();
+            int i = int.Parse(input);
+            Console.WriteLine($"The {i} even number is {IterativeEven(i)}");
+        }
+
+        private static object IterativeEven(int n)
+        {
+            int result = 0;
+            for (int i = 0; i < n; i++)
+            {
+                result += 2;
+            }
+            return result;
         }
 
         private static void FibonacciInteract()
@@ -110,7 +139,6 @@ namespace Ovning4
             string input = Console.ReadLine();
             int i = int.Parse(input);
             Console.WriteLine($"The {i} even number is {RecursiveEven(i)}");
-
         }
 
         private static int RecursiveEven(int i)
