@@ -405,7 +405,7 @@ namespace Ovning4
                 }
 
             }
-            if (wellFormed)
+            if (wellFormed && stack.Count == 0)
                 Console.WriteLine("The string has matching parenthesis.");
             else
                 Console.WriteLine("The string does not have matching parenthesis.");
