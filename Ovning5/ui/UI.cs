@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ovning5
+namespace Ovning5.ui
 {
-    public class UI: IUI
+    public class UI : IUI
     {
-        public static string AskForString(string prompt, IUI ui)
+        public static string AskForString(string prompt)
         {
             string answer;
             bool success = false;
@@ -16,13 +16,13 @@ namespace Ovning5
             //loopa tills användaren har skrivit in något
             do
             {
-                ui.Print($"{prompt}: ");
-                answer = ui.GetInput()!;
+                Print($"{prompt}: ");
+                answer = GetInput()!;
 
                 //Än så länge ingen annan validering än att strängen inte får vara tom.
                 if (string.IsNullOrWhiteSpace(answer))
                 {
-                    ui.Print($"You must enter a valid {prompt}");
+                    Print($"You must enter a valid {prompt}\n");
                 }
                 else
                 {
@@ -34,22 +34,39 @@ namespace Ovning5
             return answer;
         }
 
-        public static uint AskForUInt(string prompt, IUI ui)
+        private static string GetInput()
+        {
+            return Console.ReadLine();
+        }
+
+        private static void Print(string v)
+        {
+            Console.Write(v);
+        }
+
+        public static int AskForInt(string prompt)
         {
             do
             {
-                string input = AskForString(prompt, ui);
+                string input = AskForString(prompt);
 
                 //Anropa AskForString så vi vet att vi faktiskt får en string tillbaks
                 //Fortsätter tills vi har fått en string som vi kan Parsa till en uint
                 //Oftast använder man sig av en int här kör jag uint mer för demo.
-                if (uint.TryParse(input, out uint answer))
+                if (int.TryParse(input, out int answer))
                 {
                     return answer;
                 }
+                else
+                    Print($"You must enter a valid {prompt}\n");
+
 
             } while (true);
 
+        }
+
+        public void HandleInteractions()
+        {
         }
     }
 }

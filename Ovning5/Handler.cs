@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ovning5
 {
-    internal class Handler
+    public class Handler:IHandler
     {
     }
 }

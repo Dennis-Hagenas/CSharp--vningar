@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ovning5
+namespace Ovning5.ui
 {
-    internal interface IUI
+    public interface IUI
     {
+        void HandleInteractions();
     }
 }
