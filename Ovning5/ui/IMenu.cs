@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Ovning5.ui
 {
-    public interface IUI
+    public interface IMenu
     {
-        void printMainMenu();
-        int askForIntInput(string prompt);
+        public void print();
+        public IMenu interact(IUI ui, IHandler handler);
     }
 }

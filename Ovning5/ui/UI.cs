@@ -44,7 +44,7 @@ namespace Ovning5.ui
             Console.Write(v);
         }
 
-        public static int AskForInt(string prompt)
+        public int askForIntInput(string prompt)
         {
             do
             {
@@ -65,8 +65,9 @@ namespace Ovning5.ui
 
         }
 
-        public void HandleInteractions()
+
+        public void printMainMenu()
         {
-        }
+         }
     }
 }

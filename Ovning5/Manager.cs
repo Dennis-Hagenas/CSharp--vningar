@@ -9,22 +9,27 @@ namespace Ovning5
 {
     public class Manager
     {
-        public IUI UI { get; }
+        public IUI ui { get; }
         public IHandler handler { get; }
         public bool ProgramIsRunning { get; set; }
 
         public Manager()
         {
-            UI = new UI();
+            ui = new UI();
             handler = new Handler();
+            ProgramIsRunning = true;
         }
 
         public void run()
         {
+            IMenu currentMenu = new Menu_Main();
             while (ProgramIsRunning)
             {
-                UI.HandleInteractions();
+                currentMenu.print();
+                currentMenu = currentMenu.interact(ui, handler);
+                if (currentMenu == null) ProgramIsRunning = false;
             }
         }
     }
+
 }
