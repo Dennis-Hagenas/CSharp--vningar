@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Ovning5.garage
 {
-    internal interface IGaraget
+    public interface IGarage<T> where T : Vehicle
     {
+        T parkVehicle(T vehicle);
+        T removeVehicle(T vehicle);
+        public int size();
     }
 }

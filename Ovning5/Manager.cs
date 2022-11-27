@@ -17,6 +17,7 @@ namespace Ovning5
         {
             ui = new UI();
             handler = new Handler();
+            handler.createGarage(50);
             ProgramIsRunning = true;
         }
 

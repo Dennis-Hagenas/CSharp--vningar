@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Ovning5.garage
 {
-    internal interface IVehicle
+    public interface IVehicle
     {
+        string Model { get; set; }
+        string Color { get; set; }
+        int NrOfWheels { get; set; }
+        string Registration { get; set; }
     }
 }

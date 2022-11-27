@@ -8,7 +8,7 @@ namespace Ovning5.ui
 {
     public interface IUI
     {
-        void printMainMenu();
         int askForIntInput(string prompt);
+        string askForStringInput(string prompt);
     }
 }

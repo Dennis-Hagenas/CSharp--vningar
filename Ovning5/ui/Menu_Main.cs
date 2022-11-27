@@ -4,21 +4,26 @@ namespace Ovning5.ui
 {
     public class Menu_Main : IMenu
     {
+        public void print()
+        {
+            Console.WriteLine("[-----------Main---Menu----------------]");
+            Console.WriteLine($"{GlobalConstants.MenuOptionParking} Park vehicles");
+            Console.WriteLine($"{GlobalConstants.MenuOptionSearch} Search");
+            Console.WriteLine($"{GlobalConstants.MenuOptionMaintenance} Database maintenance");
+            Console.WriteLine($"{GlobalConstants.MenuOptionQuit} Quit");
+        }
         public IMenu interact(IUI ui, IHandler handler)
         {
             switch (ui.askForIntInput("Choose an option"))
             {
-                case GlobalConstants.MenuOptionListType:
-                    return this;
+                case GlobalConstants.MenuOptionParking:
+                    return new Menu_Parking(this);
                     break;
-                case GlobalConstants.MenuOptionFindByRegistation:
-                    return this;
+                case GlobalConstants.MenuOptionSearch:
+                    return new Menu_Search(this);
                     break;
-                case GlobalConstants.MenuOptionListAllParked:
-                    return this;
-                    break;
-                case GlobalConstants.MenuOptionSeed:
-                    return this;
+                case GlobalConstants.MenuOptionMaintenance:
+                    return new Menu_GarageMaintenance(this);
                     break;
                 case GlobalConstants.MenuOptionQuit:
                     return null;
@@ -27,16 +32,6 @@ namespace Ovning5.ui
                     return this;
                     break;
             }
-
-        }
-
-        public void print()
-        {
-            Console.WriteLine($"{GlobalConstants.MenuOptionListAllParked} List all parked vehicles");
-            Console.WriteLine($"{GlobalConstants.MenuOptionListType} List vehicletypes");
-            Console.WriteLine($"{GlobalConstants.MenuOptionSeed} Seed database");
-            Console.WriteLine($"{GlobalConstants.MenuOptionFindByRegistation} Find car by registration");
-            Console.WriteLine($"{GlobalConstants.MenuOptionQuit} Quit");
         }
     }
 }

@@ -65,9 +65,10 @@ namespace Ovning5.ui
 
         }
 
-
-        public void printMainMenu()
+        public string askForStringInput(string prompt)
         {
-         }
+            return AskForString(prompt);
+        }
+
     }
 }

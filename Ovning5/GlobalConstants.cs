@@ -8,10 +8,21 @@ namespace Ovning5
 {
     public static class GlobalConstants
     {
-        public const int MenuOptionListAllParked = 1;
-        public const int MenuOptionListType = 2;
-        public const int MenuOptionSeed = 3;
-        public const int MenuOptionFindByRegistation = 4;
+        public const int MenuOptionPark = 1;
+        public const int MenuOptionSearch = 2;
+        public const int MenuOptionMaintenance = 3;
+        
+        public const int MenuOptionFindByRegistation = 1;
+        public const int MenuOptionListAllParked = 2;
+        public const int MenuOptionListType = 3;
+
+        public const int MenuOptionParking = 1;
+        public const int MenuOptionRemoveVehicle = 2;
+
+        public const int MenuOptionSeed = 1;
+        public const int MenuOptionCreate = 2;
+        
+        public const int MenuOptionReturn = 9;
         public const int MenuOptionQuit = 0;
     }
 }
