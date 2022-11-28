@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ovning5.garage;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,11 +20,35 @@ namespace Ovning5.ui
         {
             switch (ui.askForIntInput("Choose an option"))
             {
-                case GlobalConstants.MenuOptionParking:
+                case 1:
                     return this;
                     break;
-
-                case GlobalConstants.MenuOptionRemoveVehicle:
+                case 2:
+                    model = ui.askForStringInput("Enter model");
+                    return this;
+                    break;
+                case 3:
+                    color = ui.askForStringInput("Enter color");
+                    return this;
+                    break;
+                case 4:
+                    hjul = ui.askForIntInput("Enter nr of wheels");
+                    return this;
+                    break;
+                case 5:
+                    regnummer = ui.askForStringInput("Enter registration");
+                    return this;
+                    break;
+                case 6:
+                    vehicle = "Car";
+                    model = "";
+                    color = "";
+                    hjul = 0;
+                    regnummer = "";
+                    return this;
+                    break;
+                case 10:
+                    search(ui, handler);
                     return this;
                     break;
 
@@ -37,15 +62,44 @@ namespace Ovning5.ui
 
         }
 
+
+        string vehicle = "Car";
+        string model = "";
+        string color = "";
+        int hjul = 0;
+        string regnummer = "";
+
+
         public void print()
         {
-            Console.WriteLine("Park a new vehicle");
-            Console.WriteLine($"1. Type ");
-            Console.WriteLine($"2. Model ");
-            Console.WriteLine($"3.  ");
-            Console.WriteLine($"4. Type ");
-            Console.WriteLine($"10. Create vehicle ");
-            Console.WriteLine($"11. Exit without saving ");
+            Console.WriteLine("Park a new vehicle (field with zero/blank will not be used)");
+            Console.WriteLine($"1. Type {vehicle}");
+            Console.WriteLine($"2. Model {model}");
+            Console.WriteLine($"3. Color {color}");
+            Console.WriteLine($"4. Antal hjul {hjul}");
+            Console.WriteLine($"5. Registration number {regnummer}");
+            Console.WriteLine($"6. Reset");
+            Console.WriteLine($"10. Search");
+            Console.WriteLine($"11. Back to search menu");
+        }
+        private void search(IUI ui, IHandler handler)
+        {
+            Console.WriteLine();
+            var query = from s in handler select s;
+
+            if (!model.Equals(""))
+                query = query.Where(s => s.Model.Equals(model));
+            if (!color.Equals(""))
+                query = query.Where(s => s.Color.Equals(color));
+            if (hjul != 0)
+                query = query.Where(s => s.NrOfWheels == hjul);
+            if (!regnummer.Equals(""))
+                query = query.Where(s => s.Registration.Equals(regnummer.ToUpper()));
+
+            var result = query.ToList();
+            foreach (Vehicle s in result)
+                Menu_Search.printVehicle(s);
+            Console.WriteLine();
         }
     }
 }

@@ -40,13 +40,16 @@ namespace Ovning5.ui
 
         public static void seed(IHandler handler)
         {
-            handler.parkVehicle(new Car("Volvo 740", "Blue", 4, "QWE564", 1984));
             handler.parkVehicle(new Car("MercedesBenz S90", "Red", 4, "Dfg384", 1972));
-            handler.parkVehicle(new Car("Saab 95", "Grey", 4, "Aft485", 1998));
-            handler.parkVehicle(new Car("Lamborghini Countach", "Red", 4, "kew394", 2004));
-            handler.parkVehicle(new Car("Mazda Speedster", "Green", 4, "ode124", 2010));
+            handler.parkVehicle(new Airplane("Boeing", "White", 4, "se-b9gt", 50));
             handler.parkVehicle(new Car("Volkswagen Bus", "White", 4, "isk523", 1990));
             handler.parkVehicle(new Car("BMW", "Blue", 4, "tkd264", 2018));
+            handler.parkVehicle(new Bus("MAN", "Blue", 4, "hld234", "diesel"));
+            handler.parkVehicle(new Motorcycle("Harley Davidsson", "Blue", 2, "idj384", 100));
+            handler.parkVehicle(new Boat("Lazzara", "Red", 0, "fl2597ar", 24));
+            handler.parkVehicle(new Car("Lamborghini Countach", "Red", 4, "kew394", 2004));
+            handler.parkVehicle(new Car("Mazda Speedster", "Green", 4, "ode124", 2010));
+            handler.parkVehicle(new Motorcycle("BMW", "Blue", 2, "vod394", 50));
         }
 
         public void print()

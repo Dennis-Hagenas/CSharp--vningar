@@ -40,24 +40,57 @@ namespace Ovning5.ui
 
         private void listTypes(IHandler handler)
         {
+            int airplane = 0, boat = 0, bus = 0, car = 0, motorcycle = 0;
+
+            foreach (Vehicle f in handler)
+            {
+                if (f is Car) car++;
+                if (f is Airplane) airplane++;
+                if (f is Boat) boat++;
+                if (f is Motorcycle) motorcycle++;
+                if (f is Bus) bus++;
+            }
+            Console.WriteLine($"\nVehicle types in garage\nCars: {car}\n"+
+                $"Airplane: {airplane}\nBoat: {boat}\nMotorcycle: {motorcycle}\n"+
+                $"Bus: {bus}\n\n");
 
         }
 
         private void findRegistration(IUI ui, IHandler handler)
         {
+            Console.WriteLine();
+            string query = ui.askForStringInput("Enter registration");
+            var result = from s in handler where s.Registration.Equals(query.ToUpper()) select s;
+            foreach (Vehicle s in result)
+                printVehicle(s);
+            Console.WriteLine();
         }
 
         private static void listAll(IHandler handler)
         {
-            Console.WriteLine($"Model                        Color     Wheels    Registration");
-            Console.WriteLine($"-------------------------------------------------------------");
+            Console.WriteLine($"Model                        Color     Wheels    Registration      Type");
+            Console.WriteLine($"-----------------------------------------------------------------------");
 
             foreach (Vehicle vehicle in handler)
             {
-                Console.WriteLine(
-                    $"{vehicle.Model,-25}|{vehicle.Color,10}|{vehicle.NrOfWheels,10}|{vehicle.Registration,10}");
+                printVehicle(vehicle);
             }
             Console.WriteLine();
+        }
+
+        public static void printVehicle(Vehicle vehicle)
+        {
+            string type = "";
+            {
+                if (vehicle is Car) type = "car";
+                if (vehicle is Airplane) type = "airplane";
+                if (vehicle is Boat) type = "boat";
+                if (vehicle is Motorcycle) type = "motorcycle";
+                if (vehicle is Bus) type = "bus";
+            }
+
+            Console.WriteLine(
+                $"{vehicle.Model,-25}|{vehicle.Color,10}|{vehicle.NrOfWheels,10}|{vehicle.Registration,10}|{type,12}");
         }
 
         public void print()
