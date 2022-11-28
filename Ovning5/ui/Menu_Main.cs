@@ -18,19 +18,14 @@ namespace Ovning5.ui
             {
                 case GlobalConstants.MenuOptionParking:
                     return new Menu_Parking(this);
-                    break;
                 case GlobalConstants.MenuOptionSearch:
                     return new Menu_Search(this);
-                    break;
                 case GlobalConstants.MenuOptionMaintenance:
                     return new Menu_GarageMaintenance(this);
-                    break;
                 case GlobalConstants.MenuOptionQuit:
-                    return null;
-                    break;
+                    return null!;
                 default:
                     return this;
-                    break;
             }
         }
     }

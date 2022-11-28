@@ -1,9 +1,4 @@
 ﻿using Ovning5.garage;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ovning5.ui
 {
@@ -21,49 +16,39 @@ namespace Ovning5.ui
             switch (ui.askForIntInput("Choose an option"))
             {
                 case 1:
+                    type = ui.askForStringInput("Enter type(Airplane, Boat, Bus, Car, Motorcycle are valid)");
                     return this;
-                    break;
                 case 2:
                     model = ui.askForStringInput("Enter model");
                     return this;
-                    break;
                 case 3:
                     color = ui.askForStringInput("Enter color");
                     return this;
-                    break;
                 case 4:
                     hjul = ui.askForIntInput("Enter nr of wheels");
                     return this;
-                    break;
                 case 5:
                     regnummer = ui.askForStringInput("Enter registration");
                     return this;
-                    break;
                 case 6:
-                    vehicle = "Car";
+                    type = "";
                     model = "";
                     color = "";
                     hjul = 0;
                     regnummer = "";
                     return this;
-                    break;
                 case 10:
                     search(ui, handler);
                     return this;
-                    break;
-
                 case 11:
                     return menu_Search;
-                    break;
                 default:
                     return this;
-                    break;
             }
-
         }
 
 
-        string vehicle = "Car";
+        string type = "";
         string model = "";
         string color = "";
         int hjul = 0;
@@ -73,7 +58,7 @@ namespace Ovning5.ui
         public void print()
         {
             Console.WriteLine("Park a new vehicle (field with zero/blank will not be used)");
-            Console.WriteLine($"1. Type {vehicle}");
+            Console.WriteLine($"1. Type {type}");
             Console.WriteLine($"2. Model {model}");
             Console.WriteLine($"3. Color {color}");
             Console.WriteLine($"4. Antal hjul {hjul}");
@@ -82,6 +67,7 @@ namespace Ovning5.ui
             Console.WriteLine($"10. Search");
             Console.WriteLine($"11. Back to search menu");
         }
+
         private void search(IUI ui, IHandler handler)
         {
             Console.WriteLine();
@@ -95,6 +81,11 @@ namespace Ovning5.ui
                 query = query.Where(s => s.NrOfWheels == hjul);
             if (!regnummer.Equals(""))
                 query = query.Where(s => s.Registration.Equals(regnummer.ToUpper()));
+            if (type.ToLower().Equals("airplane")) query = query.Where(s => (s is Airplane));
+            if (type.ToLower().Equals("boat")) query = query.Where(s => (s is Boat));
+            if (type.ToLower().Equals("bus")) query = query.Where(s => (s is Bus));
+            if (type.ToLower().Equals("car")) query = query.Where(s => (s is Car));
+            if (type.ToLower().Equals("motorcycle")) query = query.Where(s => (s is Motorcycle));
 
             var result = query.ToList();
             foreach (Vehicle s in result)

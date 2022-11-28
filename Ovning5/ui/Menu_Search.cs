@@ -17,24 +17,18 @@ namespace Ovning5.ui
                 case GlobalConstants.MenuOptionListAllParked:
                     listAll(handler);
                     return this;
-                    break;
                 case GlobalConstants.MenuOptionListVehicleTypes:
                     listTypes(handler);
                     return this;
-                    break;
                 case GlobalConstants.MenuOptionListByField:
                     return new Menu_ListByField(this);
-                    break;
                 case GlobalConstants.MenuOptionFindByRegistation:
                     findRegistration(ui, handler);
                     return this;
-                    break;
                 case GlobalConstants.MenuOptionReturn:
                     return menu_Main;
-                    break;
                 default:
                     return this;
-                    break;
             }
         }
 

@@ -17,24 +17,21 @@ namespace Ovning5.ui
             {
                 case GlobalConstants.MenuOptionSeed:
                     seed(handler);
+                    Console.WriteLine("Added 10 vehicles");
                     return this;
-                    break;
                 case GlobalConstants.MenuOptionCreate:
                     Create(ui, handler);
                     return this;
-                    break;
                 case GlobalConstants.MenuOptionReturn:
                     return menu_Main;
-                    break;
                 default:
                     return this;
-                    break;
             }
         }
 
         private void Create(IUI ui, IHandler handler)
         {
-            int size = ui.askForIntInput("Enter new garage size (this will remove the old garage)");   
+            int size = ui.askForIntInput("Enter new garage size (this will remove the old garage)");
             handler.createGarage(size);
         }
 

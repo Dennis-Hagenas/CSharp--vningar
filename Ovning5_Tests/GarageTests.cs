@@ -52,16 +52,13 @@ namespace Ovning5_Tests
             Garage<Vehicle> garage = new Garage<Vehicle>(5);
             Vehicle vehicle = new Car("Volvo 740", "Red", 4, "KFZ324", 1995);
             garage.parkVehicle(vehicle);
-            Vehicle parkedVehicle = null!;
 
             // Act
-            foreach (Car car in garage) if (car.Registration.Equals("KFZ324"))
-                {
-                    parkedVehicle = car;
-                }
+            Vehicle result = garage.removeVehicle(vehicle);
 
             // Assert
-            Assert.Equal("KFZ324", parkedVehicle!.Registration);
+            Assert.NotNull(result);
+            Assert.Equal("KFZ324", result.Registration);
         }
     }
 }

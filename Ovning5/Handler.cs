@@ -2,7 +2,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,10 +14,10 @@ namespace Ovning5
     {
         public Handler()
         {
-
+            
         }
 
-        Garage<Vehicle> garage;
+        Garage<Vehicle> garage = null!;
 
         public void createGarage(int size)
         {
@@ -29,12 +31,15 @@ namespace Ovning5
 
         public Vehicle remove(string reg)
         {
-            return null;
+            var query = from s in garage  where s.Registration.Equals(reg.ToUpper()) select s;
+            Vehicle v = query.FirstOrDefault()!;
+            Vehicle result = garage.removeVehicle(v);
+            return result;
         }
 
-        public void parkVehicle(Vehicle car)
+        public Vehicle parkVehicle(Vehicle car)
         {
-            garage.parkVehicle(car);
+            return garage.parkVehicle(car);
         }
 
         public IEnumerator<Vehicle> GetEnumerator()

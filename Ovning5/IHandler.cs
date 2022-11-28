@@ -11,7 +11,7 @@ namespace Ovning5
     {
         public void createGarage(int size);
         public IEnumerator<Vehicle> getEnumerator();
-        void parkVehicle(Vehicle car);
+        Vehicle parkVehicle(Vehicle car);
         Vehicle remove(string reg);
     }
 }
