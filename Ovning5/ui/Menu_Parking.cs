@@ -21,16 +21,12 @@ namespace Ovning5.ui
             switch (ui.askForIntInput("Choose an option"))
             {
                 case GlobalConstants.MenuOptionParking:
-                    return this;
+                    
+                    return new Menu_ParkVehicle(this);
                     break;
 
                 case GlobalConstants.MenuOptionRemoveVehicle:
-                    string reg = ui.askForStringInput("Enter registration number");
-                    Vehicle result = handler.remove(reg);
-                    if (result != null) Console.WriteLine(
-                            $"Succesfully removed\n{result.Model,-25}|{result.Color,10}|{result.NrOfWheels,10}|{result.Registration,10}");
-                    else 
-                        Console.WriteLine("Vehicle is not in garage");
+                    remove(ui, handler);
                     return this;
                     break;
 
@@ -43,10 +39,22 @@ namespace Ovning5.ui
             }
         }
 
+
+        private static void remove(IUI ui, IHandler handler)
+        {
+            string reg = ui.askForStringInput("Enter registration number");
+            Vehicle result = handler.remove(reg);
+            if (result != null) Console.WriteLine(
+                    $"Succesfully removed\n{result.Model,-25}|{result.Color,10}|{result.NrOfWheels,10}|{result.Registration,10}");
+            else
+                Console.WriteLine("Vehicle is not in garage");
+        }
+
         public void print()
         {
             Console.WriteLine("[------------Park----Vehicle-------------]");
             Console.WriteLine($"{GlobalConstants.MenuOptionPark} Park vehicle");
+            Console.WriteLine($"{GlobalConstants.MenuOptionRemoveVehicle} Remove vehicle");
             Console.WriteLine($"{GlobalConstants.MenuOptionReturn} Return to main menu");
         }
     }

@@ -7,9 +7,9 @@ namespace Ovning5.ui
         public void print()
         {
             Console.WriteLine("[-----------Main---Menu----------------]");
-            Console.WriteLine($"{GlobalConstants.MenuOptionParking} Park vehicles");
-            Console.WriteLine($"{GlobalConstants.MenuOptionSearch} Search");
-            Console.WriteLine($"{GlobalConstants.MenuOptionMaintenance} Database maintenance");
+            Console.WriteLine($"{GlobalConstants.MenuOptionParking} Park and remove vehicles");
+            Console.WriteLine($"{GlobalConstants.MenuOptionSearch} Garage Inventory Functions");
+            Console.WriteLine($"{GlobalConstants.MenuOptionMaintenance} Database maintenance operations");
             Console.WriteLine($"{GlobalConstants.MenuOptionQuit} Quit");
         }
         public IMenu interact(IUI ui, IHandler handler)

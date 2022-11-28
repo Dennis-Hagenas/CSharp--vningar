@@ -17,13 +17,24 @@ namespace Ovning5
         {
             ui = new UI();
             handler = new Handler();
-            handler.createGarage(50);
             ProgramIsRunning = true;
         }
 
         public void run()
         {
             IMenu currentMenu = new Menu_Main();
+            {
+                Console.WriteLine("Welcome to GarageApp!");
+                int newGarageSize = ui.askForIntInput("Please enter the number of parking spaces in the garage");
+                handler.createGarage(newGarageSize);
+            }
+            {
+                string answer = ui.askForStringInput("Do you want to seed the garage with a set of 10 vehicles(y/n)");
+                if (answer.ToLower().Equals("y"))
+                {
+                    Menu_GarageMaintenance.seed(handler);
+                }
+            }
             while (ProgramIsRunning)
             {
                 currentMenu.print();

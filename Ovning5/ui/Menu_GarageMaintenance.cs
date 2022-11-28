@@ -20,7 +20,7 @@ namespace Ovning5.ui
                     return this;
                     break;
                 case GlobalConstants.MenuOptionCreate:
-                    Create(handler);
+                    Create(ui, handler);
                     return this;
                     break;
                 case GlobalConstants.MenuOptionReturn:
@@ -32,11 +32,13 @@ namespace Ovning5.ui
             }
         }
 
-        private void Create(IHandler handler)
+        private void Create(IUI ui, IHandler handler)
         {
+            int size = ui.askForIntInput("Enter new garage size (this will remove the old garage)");   
+            handler.createGarage(size);
         }
 
-        private void seed(IHandler handler)
+        public static void seed(IHandler handler)
         {
             handler.parkVehicle(new Car("Volvo 740", "Blue", 4, "QWE564", 1984));
             handler.parkVehicle(new Car("MercedesBenz S90", "Red", 4, "Dfg384", 1972));
@@ -50,8 +52,8 @@ namespace Ovning5.ui
         public void print()
         {
             Console.WriteLine("[----------Maintenance---Menu------------------]");
-            Console.WriteLine($"{GlobalConstants.MenuOptionSeed} Seed database");
-            Console.WriteLine($"{GlobalConstants.MenuOptionCreate} Create a new database");
+            Console.WriteLine($"{GlobalConstants.MenuOptionSeed} Seed garage with vehicles");
+            Console.WriteLine($"{GlobalConstants.MenuOptionCreate} Create a new garage");
             Console.WriteLine($"{GlobalConstants.MenuOptionReturn} Return to main menu");
         }
     }

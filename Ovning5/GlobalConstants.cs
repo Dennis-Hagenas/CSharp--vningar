@@ -12,9 +12,10 @@ namespace Ovning5
         public const int MenuOptionSearch = 2;
         public const int MenuOptionMaintenance = 3;
         
-        public const int MenuOptionFindByRegistation = 1;
-        public const int MenuOptionListAllParked = 2;
-        public const int MenuOptionListType = 3;
+        public const int MenuOptionListAllParked = 1;
+        public const int MenuOptionListVehicleTypes = 2;
+        public const int MenuOptionFindByRegistation = 3;
+        public const int MenuOptionListByField = 4;
 
         public const int MenuOptionParking = 1;
         public const int MenuOptionRemoveVehicle = 2;
