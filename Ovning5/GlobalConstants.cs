@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Ovning5
+﻿namespace Ovning5
 {
     public static class GlobalConstants
     {
         public const int MenuOptionPark = 1;
         public const int MenuOptionSearch = 2;
         public const int MenuOptionMaintenance = 3;
-        
+
         public const int MenuOptionListAllParked = 1;
         public const int MenuOptionListVehicleTypes = 2;
         public const int MenuOptionFindByRegistation = 3;
@@ -22,7 +16,8 @@ namespace Ovning5
 
         public const int MenuOptionSeed = 1;
         public const int MenuOptionCreate = 2;
-        
+        public const int MenuOptionGarageSize = 3;
+
         public const int MenuOptionReturn = 9;
         public const int MenuOptionQuit = 0;
     }

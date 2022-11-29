@@ -1,6 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-
-namespace Ovning5.ui
+﻿namespace Ovning5.ui
 {
     public class Menu_Main : IMenu
     {

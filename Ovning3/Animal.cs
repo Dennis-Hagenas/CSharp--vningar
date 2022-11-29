@@ -1,24 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Ovning3
+﻿namespace Ovning3
 {
-/*
- * 
- * F: Om vi ska lägga till egenskaper till fåglar bör det läggas i klassen Bird
- * 
- * F: Om alla djur behöver ett nytt attribut bör det läggas i klassen Animal
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- */
+    /*
+     * 
+     * F: Om vi ska lägga till egenskaper till fåglar bör det läggas i klassen Bird
+     * 
+     * F: Om alla djur behöver ett nytt attribut bör det läggas i klassen Animal
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     */
     interface IPerson
     {
         public string Talk();
@@ -35,7 +29,7 @@ namespace Ovning3
 
         public virtual string Stats()
         {
-            return "Name: "+ Name + ", Weight: " + Weight + ", Age: " + Age;
+            return "Name: " + Name + ", Weight: " + Weight + ", Age: " + Age;
         }
 
         protected Animal(string name, double weight, double age)

@@ -25,7 +25,7 @@ namespace Ovning5.garage
             return vehicles.Length;
         }
 
-       public IEnumerator<T> GetEnumerator()
+        public IEnumerator<T> GetEnumerator()
         {
             return new GarageEnumerator<T>(vehicles, firstFreeSlot);
         }
@@ -37,7 +37,7 @@ namespace Ovning5.garage
 
         public T removeVehicle(T removed)
         {
-            if (removed == null) return null;
+            if (removed == null) return null!;
             T result = null!;
             int pos = -1;
 
@@ -46,14 +46,14 @@ namespace Ovning5.garage
                 if (vehicles[i] == removed)
                 {
                     result = vehicles[i];
-                    vehicles[i] = null;
+                    vehicles[i] = null!;
                     pos = i;
                     break;
                 }
             }
-            if (result!=null)
+            if (result != null)
             {
-                for(int i = pos; i < (vehicles.Length-1); i++)
+                for (int i = pos; i < (vehicles.Length - 1); i++)
                 {
                     vehicles[i] = vehicles[i + 1];
                 }
@@ -61,6 +61,11 @@ namespace Ovning5.garage
                 firstFreeSlot--;
             }
             return result!;
+        }
+
+        public int getFreeSpace()
+        {
+            return size() - firstFreeSlot;
         }
     }
 }

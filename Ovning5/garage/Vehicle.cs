@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Ovning5.garage
+﻿namespace Ovning5.garage
 {
-    public abstract class Vehicle: IVehicle
+    public abstract class Vehicle : IVehicle
     {
         public Vehicle(string model, string color, int antalHjul, string regnummer)
         {

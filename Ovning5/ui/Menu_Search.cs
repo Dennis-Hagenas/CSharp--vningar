@@ -44,8 +44,8 @@ namespace Ovning5.ui
                 if (f is Motorcycle) motorcycle++;
                 if (f is Bus) bus++;
             }
-            Console.WriteLine($"\nVehicle types in garage\nCars: {car}\n"+
-                $"Airplane: {airplane}\nBoat: {boat}\nMotorcycle: {motorcycle}\n"+
+            Console.WriteLine($"\nVehicle types in garage\nCars: {car}\n" +
+                $"Airplane: {airplane}\nBoat: {boat}\nMotorcycle: {motorcycle}\n" +
                 $"Bus: {bus}\n\n");
 
         }

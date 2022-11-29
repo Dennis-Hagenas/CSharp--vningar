@@ -22,6 +22,9 @@ namespace Ovning5.ui
                 case GlobalConstants.MenuOptionCreate:
                     Create(ui, handler);
                     return this;
+                case GlobalConstants.MenuOptionGarageSize:
+                    Console.WriteLine($"\nThe garage size is {handler.getGarageSize()}, there are {handler.getFreeParkingSpace()} free parking spaces\n");
+                    return this;
                 case GlobalConstants.MenuOptionReturn:
                     return menu_Main;
                 default:
@@ -54,6 +57,7 @@ namespace Ovning5.ui
             Console.WriteLine("[----------Maintenance---Menu------------------]");
             Console.WriteLine($"{GlobalConstants.MenuOptionSeed} Seed garage with vehicles");
             Console.WriteLine($"{GlobalConstants.MenuOptionCreate} Create a new garage");
+            Console.WriteLine($"{GlobalConstants.MenuOptionGarageSize} Get garage size");
             Console.WriteLine($"{GlobalConstants.MenuOptionReturn} Return to main menu");
         }
     }

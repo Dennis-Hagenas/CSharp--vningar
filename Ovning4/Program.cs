@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Ovning4
+﻿namespace Ovning4
 {
     /*
      * 
@@ -126,10 +124,10 @@ namespace Ovning4
             Console.WriteLine();
         }
 
-            private static int Fibonacci(int i)
+        private static int Fibonacci(int i)
         {
             if (i == 0) return 0;
-            if( i == 1) return 1;
+            if (i == 1) return 1;
             return Fibonacci(i - 1) + Fibonacci(i - 2);
         }
 

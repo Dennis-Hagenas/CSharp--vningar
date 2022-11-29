@@ -53,7 +53,7 @@
             errors.Add(new NumericRangeInputError());
 
 
-            foreach (UserError error in errors) 
+            foreach (UserError error in errors)
                 Console.WriteLine($"Error: {error.UEMessage()}");
 
 
@@ -73,9 +73,10 @@
             foreach (Animal animal in animals)
             {
                 Console.WriteLine($"Animal: {animal.Name}  Sound: {animal.DoSound()}");
-                if (animal is IPerson) { 
+                if (animal is IPerson)
+                {
                     IPerson person = (IPerson)animal;
-                    Console.WriteLine(person.Talk()); 
+                    Console.WriteLine(person.Talk());
                 }
             }
 
@@ -91,7 +92,8 @@
             dogs.Add(new Dog("Dog", 15, 5));
 
             Console.WriteLine("\nDogs\n-------------\n");
-            foreach (Dog dog in dogs) {
+            foreach (Dog dog in dogs)
+            {
                 Console.WriteLine(dog.Stats());
             }
 
@@ -111,8 +113,8 @@
                 {
                     Dog dog = (Dog)animal;
                     Console.WriteLine($"Dog gives a: {dog.FetchBall()}");
-                } 
-                
+                }
+
             }
             /*
              * F: Den överladdade versionen av doSound anropas i subclassen

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 
 namespace Ovning2
 {
@@ -84,9 +80,10 @@ namespace Ovning2
         private void TredjeOrdetMethod()
         {
             Console.Write("Skriv en mening: ");
-            try { 
-            string mening = Console.ReadLine();
-            var ord = mening.Split(" ");
+            try
+            {
+                string mening = Console.ReadLine();
+                var ord = mening.Split(" ");
 
                 StringBuilder str_build = new StringBuilder();
                 for (int i = 0; i < ord.Length; i++)
@@ -101,7 +98,9 @@ namespace Ovning2
                 //    Console.Write($" Ord {i + 1}: \"{ord[i]}\"");
                 //}
                 Console.WriteLine($"Det tredje ordet är {ord[2]}");
-            } catch {
+            }
+            catch
+            {
                 Console.WriteLine("Inget giltigt värde angavs.");
             }
         }
@@ -111,7 +110,7 @@ namespace Ovning2
             Console.Write("Ange en text:");
             string input = Console.ReadLine()!;
             for (int i = 0; i < 10; i++)
-                Console.Write($"{i+1}. {input} ");
+                Console.Write($"{i + 1}. {input} ");
         }
 
         private void PrisMethod(string alder, out int pris, out string priskategori)
@@ -123,12 +122,13 @@ namespace Ovning2
 
             if (alder_i < 20)
             {
-                if (alder_i < 5) { pris = 0; priskategori = "Barn går gratis"; } 
+                if (alder_i < 5) { pris = 0; priskategori = "Barn går gratis"; }
                 else { pris = 80; priskategori = "Ungdomspris"; }
             }
-            else if (alder_i > 64) { 
+            else if (alder_i > 64)
+            {
                 if (alder_i > 100) { pris = 0; priskategori = "Pensionärer över 100 går gratis"; }
-                else { pris = 90; priskategori = "Pensionärspris"; } 
+                else { pris = 90; priskategori = "Pensionärspris"; }
             }
         }
 
@@ -141,7 +141,7 @@ namespace Ovning2
             Console.Write("Ange ålder: ");
             string input = Console.ReadLine()!;
 
-            PrisMethod(input, out pris,out prisKategori);
+            PrisMethod(input, out pris, out prisKategori);
 
             Console.WriteLine($"{pris:C} {prisKategori}");
         }

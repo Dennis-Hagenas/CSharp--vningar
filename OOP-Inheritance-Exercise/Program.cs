@@ -1,7 +1,4 @@
-﻿using static System.Net.Mime.MediaTypeNames;
-using System.Xml.Linq;
-using System;
-using System.Text;
+﻿using System.Text;
 
 namespace OOP_Inheritance_Exercise
 {
@@ -40,13 +37,13 @@ namespace OOP_Inheritance_Exercise
         public override string ToString()
         {
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.Append(String.Format("Name: {0}, Age: {1}", this.Name, this.Age)); 
+            stringBuilder.Append(String.Format("Name: {0}, Age: {1}", this.Name, this.Age));
             return stringBuilder.ToString();
         }
     }
     internal class Child : Person
     {
-        public Child(string name, int age): base(name, age)
+        public Child(string name, int age) : base(name, age)
         {
             Name = name;
             Age = age;

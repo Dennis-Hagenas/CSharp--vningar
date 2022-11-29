@@ -2,7 +2,7 @@
 
 namespace Ovning5.garage
 {
-    class GarageEnumerator<T> : IEnumerator<T> where T : Vehicle 
+    class GarageEnumerator<T> : IEnumerator<T> where T : Vehicle
     {
         int current = -1;
         private object[] vehicles;
@@ -17,8 +17,8 @@ namespace Ovning5.garage
 
         object IEnumerator.Current => vehicles[current];
 
-        T IEnumerator<T>.Current => (T) vehicles[current];
-        
+        T IEnumerator<T>.Current => (T)vehicles[current];
+
         public void Dispose()
         {
         }

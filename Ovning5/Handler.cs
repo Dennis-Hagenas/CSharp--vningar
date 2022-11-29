@@ -1,22 +1,10 @@
 ﻿using Ovning5.garage;
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ovning5
 {
-    public class Handler:IHandler
+    public class Handler : IHandler
     {
-        public Handler()
-        {
-            
-        }
-
         Garage<Vehicle> garage = null!;
 
         public void createGarage(int size)
@@ -31,7 +19,7 @@ namespace Ovning5
 
         public Vehicle remove(string reg)
         {
-            var query = from s in garage  where s.Registration.Equals(reg.ToUpper()) select s;
+            var query = from s in garage where s.Registration.Equals(reg.ToUpper()) select s;
             Vehicle v = query.FirstOrDefault()!;
             Vehicle result = garage.removeVehicle(v);
             return result;
@@ -50,6 +38,16 @@ namespace Ovning5
         IEnumerator IEnumerable.GetEnumerator()
         {
             return garage.GetEnumerator();
+        }
+
+        public int getFreeParkingSpace()
+        {
+            return garage.getFreeSpace();
+        }
+
+        public int getGarageSize()
+        {
+            return garage.size();
         }
     }
 }
