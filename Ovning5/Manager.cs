@@ -32,7 +32,7 @@ namespace Ovning5
             }
             while (ProgramIsRunning)
             {
-                currentMenu.print();
+                currentMenu!.print();
                 currentMenu = currentMenu.interact(ui, handler);
                 if (currentMenu == null) ProgramIsRunning = false;
             }

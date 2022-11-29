@@ -30,7 +30,7 @@
 
         private static string GetInput()
         {
-            return Console.ReadLine();
+            return Console.ReadLine()!;
         }
 
         private static void Print(string v)
@@ -54,15 +54,12 @@
                 else
                     Print($"You must enter a valid {prompt}\n");
 
-
             } while (true);
-
         }
 
         public string askForStringInput(string prompt)
         {
             return AskForString(prompt);
         }
-
     }
 }

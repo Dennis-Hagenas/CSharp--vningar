@@ -4,7 +4,7 @@
     {
         public void print()
         {
-            Console.WriteLine("[-----------Main---Menu----------------]");
+            Console.WriteLine("[----------Main--Menu--------------------------]");
             Console.WriteLine($"{GlobalConstants.MenuOptionParking} Park and remove vehicles");
             Console.WriteLine($"{GlobalConstants.MenuOptionSearch} Garage Inventory Functions");
             Console.WriteLine($"{GlobalConstants.MenuOptionMaintenance} Database maintenance operations");

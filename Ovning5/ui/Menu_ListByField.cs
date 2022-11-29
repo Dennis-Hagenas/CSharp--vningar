@@ -5,12 +5,10 @@ namespace Ovning5.ui
     public class Menu_ListByField : IMenu
     {
         private Menu_Search menu_Search;
-
         public Menu_ListByField(Menu_Search menu_Search)
         {
             this.menu_Search = menu_Search;
         }
-
         public IMenu interact(IUI ui, IHandler handler)
         {
             switch (ui.askForIntInput("Choose an option"))
@@ -25,17 +23,17 @@ namespace Ovning5.ui
                     color = ui.askForStringInput("Enter color");
                     return this;
                 case 4:
-                    hjul = ui.askForIntInput("Enter nr of wheels");
+                    wheels = ui.askForIntInput("Enter nr of wheels");
                     return this;
                 case 5:
-                    regnummer = ui.askForStringInput("Enter registration");
+                    registration = ui.askForStringInput("Enter registration");
                     return this;
                 case 6:
                     type = "";
                     model = "";
                     color = "";
-                    hjul = 0;
-                    regnummer = "";
+                    wheels = 0;
+                    registration = "";
                     return this;
                 case 10:
                     search(ui, handler);
@@ -51,18 +49,19 @@ namespace Ovning5.ui
         string type = "";
         string model = "";
         string color = "";
-        int hjul = 0;
-        string regnummer = "";
+        int wheels = 0;
+        string registration = "";
 
 
         public void print()
         {
+            Console.WriteLine("[-------------Search--by--field----------------]");
             Console.WriteLine("Park a new vehicle (field with zero/blank will not be used)");
-            Console.WriteLine($"1. Type {type}");
-            Console.WriteLine($"2. Model {model}");
-            Console.WriteLine($"3. Color {color}");
-            Console.WriteLine($"4. Antal hjul {hjul}");
-            Console.WriteLine($"5. Registration number {regnummer}");
+            Console.WriteLine($"1. Type                 :{type}");
+            Console.WriteLine($"2. Model                :{model}");
+            Console.WriteLine($"3. Color                :{color}");
+            Console.WriteLine($"4. Antal hjul           :{wheels}");
+            Console.WriteLine($"5. Registration number  :{registration}");
             Console.WriteLine($"6. Reset");
             Console.WriteLine($"10. Search");
             Console.WriteLine($"11. Back to search menu");
@@ -77,10 +76,10 @@ namespace Ovning5.ui
                 query = query.Where(s => s.Model.Equals(model));
             if (!color.Equals(""))
                 query = query.Where(s => s.Color.Equals(color));
-            if (hjul != 0)
-                query = query.Where(s => s.NrOfWheels == hjul);
-            if (!regnummer.Equals(""))
-                query = query.Where(s => s.Registration.Equals(regnummer.ToUpper()));
+            if (wheels != 0)
+                query = query.Where(s => s.NrOfWheels == wheels);
+            if (!registration.Equals(""))
+                query = query.Where(s => s.Registration.Equals(registration.ToUpper()));
             if (type.ToLower().Equals("airplane")) query = query.Where(s => (s is Airplane));
             if (type.ToLower().Equals("boat")) query = query.Where(s => (s is Boat));
             if (type.ToLower().Equals("bus")) query = query.Where(s => (s is Bus));
@@ -88,6 +87,8 @@ namespace Ovning5.ui
             if (type.ToLower().Equals("motorcycle")) query = query.Where(s => (s is Motorcycle));
 
             var result = query.ToList();
+            Console.WriteLine("Results:");
+            Menu_Search.printHeader();
             foreach (Vehicle s in result)
                 Menu_Search.printVehicle(s);
             Console.WriteLine();

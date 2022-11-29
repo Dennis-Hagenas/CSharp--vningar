@@ -4,6 +4,6 @@
     {
         T parkVehicle(T vehicle);
         T removeVehicle(T vehicle);
-        public int size();
+        int size();
     }
 }

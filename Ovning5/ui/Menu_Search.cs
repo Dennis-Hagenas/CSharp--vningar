@@ -55,21 +55,29 @@ namespace Ovning5.ui
             Console.WriteLine();
             string query = ui.askForStringInput("Enter registration");
             var result = from s in handler where s.Registration.Equals(query.ToUpper()) select s;
-            foreach (Vehicle s in result)
-                printVehicle(s);
+            if (result.Any())
+            {
+                printHeader();
+                printVehicle(result.FirstOrDefault()!);
+            }
+            else Console.WriteLine("Vehicle is not in garage");
             Console.WriteLine();
         }
 
         private static void listAll(IHandler handler)
         {
-            Console.WriteLine($"Model                        Color     Wheels    Registration      Type");
-            Console.WriteLine($"-----------------------------------------------------------------------");
-
+            printHeader();
             foreach (Vehicle vehicle in handler)
             {
                 printVehicle(vehicle);
             }
             Console.WriteLine();
+        }
+
+        public static void printHeader()
+        {
+            Console.WriteLine($"Model                        Color     Wheels    Registration      Type");
+            Console.WriteLine($"-----------------------------------------------------------------------");
         }
 
         public static void printVehicle(Vehicle vehicle)
@@ -89,7 +97,7 @@ namespace Ovning5.ui
 
         public void print()
         {
-            Console.WriteLine("[------------Search---Garage------------------]");
+            Console.WriteLine("[------------Search---Menu---------------------]");
             Console.WriteLine($"{GlobalConstants.MenuOptionListAllParked} List all parked");
             Console.WriteLine($"{GlobalConstants.MenuOptionListVehicleTypes} List vehicle type and amount");
             Console.WriteLine($"{GlobalConstants.MenuOptionFindByRegistation} Find by registration");
